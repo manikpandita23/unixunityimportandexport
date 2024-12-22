@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Products - Unix Unity Import and Export</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Navbar -->
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <h1 class="text-2xl font-bold text-blue-600">Unix Unity Import and Export</h1>
+      <nav class="hidden md:flex space-x-6">
+        <a href="index.html" class="text-gray-700 hover:text-blue-600">Home</a>
+        <a href="products.html" class="text-blue-600 font-semibold">Our Products</a>
+        <a href="partners.html" class="text-gray-700 hover:text-blue-600">Partners</a>
+        <a href="contact.html" class="text-gray-700 hover:text-blue-600">Contact</a>
+      </nav>
+      <button class="md:hidden text-gray-700">
+        <!-- Menu Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="bg-blue-600 text-white py-12">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold">Our Products</h2>
+      <p class="mt-2 text-lg">Explore our range of premium products.</p>
+    </div>
+  </section>
+
+  <!-- Products Grid -->
+  <section class="py-16">
+    <div class="container mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <!-- Example Product Card -->
+        <div class="bg-white shadow-md rounded-lg overflow-hidden group">
+          <img src="assets/images/product1.jpg" alt="Product 1" class="w-full h-40 object-cover group-hover:opacity-75 transition-opacity">
+          <div class="p-4">
+            <h4 class="text-lg font-bold text-gray-800">Product Name</h4>
+            <p class="text-sm text-gray-600 mt-2">A short product description.</p>
+            <button onclick="showDetails('Product Name', 'This is a detailed description of the product.', '$100', 'USA', 'Unix Unity Manufacturer')" 
+                    class="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+              View Details
+            </button>
+          </div>
+        </div>
+        <!-- Duplicate the card for other products -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Details Modal -->
+  <div id="productModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
+    <div class="bg-white rounded-lg p-8 max-w-md w-full">
+      <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700 float-right">
+        &times;
+      </button>
+      <h3 id="modalProductName" class="text-2xl font-bold text-gray-800"></h3>
+      <p id="modalProductDescription" class="mt-4 text-gray-600"></p>
+      <p id="modalProductPrice" class="mt-4 font-semibold text-gray-800"></p>
+      <p id="modalProductOrigin" class="mt-2 text-gray-600"></p>
+      <p id="modalProductManufacturer" class="mt-2 text-gray-600"></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2024 Unix Unity Import and Export. All rights reserved.</p>
+      <p>Contact us: info@unixunity.com</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function showDetails(name, description, price, origin, manufacturer) {
+      document.getElementById('modalProductName').textContent = name;
+      document.getElementById('modalProductDescription').textContent = description;
+      document.getElementById('modalProductPrice').textContent = "Price: " + price;
+      document.getElementById('modalProductOrigin').textContent = "Origin: " + origin;
+      document.getElementById('modalProductManufacturer').textContent = "Manufacturer: " + manufacturer;
+      document.getElementById('productModal').classList.remove('hidden');
+    }
+    function closeModal() {
+      document.getElementById('productModal').classList.add('hidden');
+    }
+  </script>
+
+</body>
+</html>
