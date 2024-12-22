@@ -1,60 +1,17 @@
-// Script for toggling the mobile navigation menu
-const menuToggleButton = document.querySelector('header button');
-const mobileNav = document.querySelector('header nav:nth-of-type(2)'); // Adjust to match the DOM structure
-
-if (menuToggleButton && mobileNav) {
-  menuToggleButton.addEventListener('click', () => {
-    mobileNav.classList.toggle('hidden'); // Toggle hidden class for mobile menu visibility
-  });
-}
-
-// Script for showing product details in a modal (on products.html)
-const productBoxes = document.querySelectorAll('.product-box');
-const modal = document.getElementById('productModal');
-const modalCloseButton = document.getElementById('closeModal');
-const modalContent = document.getElementById('modalContent');
-
-// Function to open modal with product details
-function openModal(product) {
-  if (product && modalContent) {
-    const { name, description, price, origin, manufacturer } = product;
-    modalContent.innerHTML = `
-      <h2 class="text-2xl font-bold text-gray-800 mb-4">${name}</h2>
-      <p class="text-gray-600 mb-2"><strong>Description:</strong> ${description}</p>
-      <p class="text-gray-600 mb-2"><strong>Price:</strong> $${price}</p>
-      <p class="text-gray-600 mb-2"><strong>Origin:</strong> ${origin}</p>
-      <p class="text-gray-600"><strong>Manufacturer:</strong> ${manufacturer}</p>
-    `;
-    modal.classList.remove('hidden'); // Show modal
-  }
-}
-
-// Event listener for product boxes
-productBoxes.forEach((box) => {
-  box.addEventListener('click', () => {
-    const product = {
-      name: box.dataset.name || 'Unknown Product',
-      description: box.dataset.description || 'No description available.',
-      price: box.dataset.price || 'N/A',
-      origin: box.dataset.origin || 'N/A',
-      manufacturer: box.dataset.manufacturer || 'N/A',
-    };
-    openModal(product);
-  });
-});
-
-// Event listener to close modal
-if (modalCloseButton) {
-  modalCloseButton.addEventListener('click', () => {
-    modal.classList.add('hidden'); // Hide modal on close button click
-  });
-}
-
-// Close modal when clicking outside of it
-if (modal) {
-  modal.addEventListener('click', (event) => {
-    if (event.target === modal) {
-      modal.classList.add('hidden'); // Hide modal on background click
-    }
-  });
-}
+<header class="bg-white shadow-md">
+  <div class="container mx-auto flex justify-between items-center py-4 px-6">
+    <h1 class="text-2xl font-bold text-blue-600">Unix Unity Import and Export</h1>
+    <button class="md:hidden text-gray-700">
+      <!-- Menu Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
+    <nav class="hidden flex-col space-y-2 mt-4 md:flex md:space-y-0 md:mt-0 md:flex-row md:space-x-6">
+      <a href="index.html" class="text-gray-700 hover:text-blue-600">Home</a>
+      <a href="products.html" class="text-gray-700 hover:text-blue-600">Our Products</a>
+      <a href="partners.html" class="text-gray-700 hover:text-blue-600">Partners</a>
+      <a href="contact.html" class="text-gray-700 hover:text-blue-600">Contact</a>
+    </nav>
+  </div>
+</header>
