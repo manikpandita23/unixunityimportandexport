@@ -92,6 +92,11 @@ body {
   left: 0;
 }
 
+#header .logo {
+  height: 50px; /* Adjust height to match the navbar */
+  width: auto; /* Maintain aspect ratio */
+}
+
 #navbar {
   display: flex;
   align-items: center;
